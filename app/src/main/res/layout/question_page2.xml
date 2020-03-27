@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- 0 -->
+        <!-- 7 -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,19 +28,19 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/q0_img1"
+                android:src="@drawable/q7_img1"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/q0_img2"
+                android:src="@drawable/q7_img2"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/q0_img3"
+                android:src="@drawable/q7_img3"
                 android:contentDescription="@string/qs_img_not_found"/>
         </LinearLayout>
         <RadioGroup
@@ -71,7 +71,7 @@
             </RadioButton>
         </RadioGroup>
 
-        <!-- 1 -->
+        <!-- 8 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,19 +81,19 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/q1_img1"
+                android:src="@drawable/q8_img1"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/q1_img2"
+                android:src="@drawable/q8_img2"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/q1_img3"
+                android:src="@drawable/q8_img3"
                 android:contentDescription="@string/qs_img_not_found"/>
         </LinearLayout>
         <RadioGroup
@@ -124,7 +124,7 @@
             </RadioButton>
         </RadioGroup>
 
-        <!-- 2 -->
+        <!-- 9 -->
         <!--android:textAppearance="@style/CustomTextTitle" -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -135,21 +135,20 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/q2_img1"
+                android:src="@drawable/q9_img1"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/q2_img2"
-                android:contentDescription="@string/qs_img_not_found"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/q2_img3"
+                android:src="@drawable/q9_img2"
                 android:contentDescription="@string/qs_img_not_found"/>
         </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/q9_img3"
+            android:contentDescription="@string/qs_img_not_found"/>
         <RadioGroup
             android:id="@+id/q2_rad_group"
             android:layout_width="match_parent"
@@ -178,7 +177,7 @@
             </RadioButton>
         </RadioGroup>
 
-        <!-- 3 -->
+        <!-- 10 -->
         <!--android:textAppearance="@style/CustomTextTitle" -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -189,21 +188,20 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q10_img1"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="@string/qs_img_not_found"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q10_img2"
                 android:contentDescription="@string/qs_img_not_found"/>
         </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/q10_img3"
+            android:contentDescription="@string/qs_img_not_found"/>
         <RadioGroup
             android:id="@+id/q3_rad_group"
             android:layout_width="match_parent"
@@ -233,7 +231,7 @@
 
         </RadioGroup>
 
-        <!-- 4 -->
+        <!-- 11 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -243,21 +241,20 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q11_img1"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="@string/qs_img_not_found"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q11_img2"
                 android:contentDescription="@string/qs_img_not_found"/>
         </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/q11_img3"
+            android:contentDescription="@string/qs_img_not_found"/>
         <RadioGroup
             android:id="@+id/q4_rad_group"
             android:layout_width="match_parent"
@@ -286,7 +283,7 @@
             </RadioButton>
         </RadioGroup>
 
-        <!-- 5 -->
+        <!-- 12 -->
         <!--android:textAppearance="@style/CustomTextTitle" -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -297,19 +294,19 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q12_img1"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q12_img2"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q12_img3"
                 android:contentDescription="@string/qs_img_not_found"/>
         </LinearLayout>
         <RadioGroup
@@ -340,7 +337,7 @@
             </RadioButton>
         </RadioGroup>
 
-        <!-- 6 -->
+        <!-- 13 -->
         <!--android:textAppearance="@style/CustomTextTitle" -->
         <LinearLayout
             android:layout_width="match_parent"

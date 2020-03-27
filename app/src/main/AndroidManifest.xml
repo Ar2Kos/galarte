@@ -18,11 +18,11 @@
         android:supportsRtl="true"
         android:theme="@style/LightTheme">
         <activity android:name=".QuestionPage">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".QuestionPage2"/>
@@ -37,18 +37,18 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".MainMenu"
             android:label="@string/app_name">
-    <!--            <intent-filter>-->
-    <!--                <action android:name="android.intent.action.MAIN" />-->
-    <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-    <!--            </intent-filter>-->
+<!--                <intent-filter>-->
+<!--                    <action android:name="android.intent.action.MAIN" />-->
+<!--                    <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                </intent-filter>-->
         </activity>
 
         <activity android:name=".GalleryPage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
 
         <!--

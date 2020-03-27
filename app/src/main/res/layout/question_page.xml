@@ -180,30 +180,23 @@
 
         <!-- 3 -->
         <!--android:textAppearance="@style/CustomTextTitle" -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_foreground"
+            android:contentDescription="@string/qs_img_not_found"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="@string/qs_img_not_found"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_foreground"
+            android:contentDescription="@string/qs_img_not_found"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="@string/qs_img_not_found"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="@string/qs_img_not_found"/>
-        </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/q3_img3"
+            android:contentDescription="@string/qs_img_not_found"/>
         <RadioGroup
             android:id="@+id/q3_rad_group"
             android:layout_width="match_parent"
@@ -234,30 +227,23 @@
         </RadioGroup>
 
         <!-- 4 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/q4_img1"
+            android:contentDescription="@string/qs_img_not_found"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="@string/qs_img_not_found"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/q4_img2"
+            android:contentDescription="@string/qs_img_not_found"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="@string/qs_img_not_found"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="@string/qs_img_not_found"/>
-        </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/q4_img3"
+            android:contentDescription="@string/qs_img_not_found"/>
         <RadioGroup
             android:id="@+id/q4_rad_group"
             android:layout_width="match_parent"
@@ -297,19 +283,19 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q5_img1"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q5_img2"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q5_img3"
                 android:contentDescription="@string/qs_img_not_found"/>
         </LinearLayout>
         <RadioGroup
@@ -351,19 +337,19 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q6_img1"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q6_img2"
                 android:contentDescription="@string/qs_img_not_found"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/q6_img3"
                 android:contentDescription="@string/qs_img_not_found"/>
         </LinearLayout>
         <RadioGroup
