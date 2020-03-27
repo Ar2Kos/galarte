@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import android.Manifest;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,6 +26,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -66,6 +71,26 @@ public class MapsActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean darkMode = prefs.getBoolean("pref_dark_mode", false);
+        String defaultLocation = prefs.getString("default_location", "");
+        String username = prefs.getString("username", "");
+
+        if (defaultLocation.equals("")) {
+            defaultLocation = "Bath";
+        }
+
+        if (username.equals("")) {
+            username = "Guest";
+        }
+
+        if (darkMode) {
+            setTheme(R.style.DarkTheme);
+        } else {
+            setTheme(R.style.LightTheme);
+        }
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
@@ -136,6 +161,26 @@ public class MapsActivity extends AppCompatActivity
             // Access to the location has been granted to the app.
             mMap.setMyLocationEnabled(true);
         }
+    }
+
+
+
+    public void toSettings(MenuItem item) {
+        Intent settingsIntent = new Intent(this, SettingsActivity.class);
+        item.setChecked(true);
+        startActivity(settingsIntent);
+    }
+
+    public void toTakeQuiz(MenuItem item) {
+        Intent takeQuizIntent = new Intent(this, QuestionPage2.class);
+        item.setChecked(true);
+        startActivity(takeQuizIntent);
+    }
+
+    public void toMap(MenuItem item) {
+        Intent mapIntent = new Intent(this, MapsActivity.class);
+        item.setChecked(true);
+        startActivity(mapIntent);
     }
 
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/bottom_navigation_group">
+
+    <item android:id="@+id/bottom_navigation_quiz"
+        android:title="Take Quiz"
+        android:titleCondensed="Quiz"
+        android:icon="@drawable/quiz_button"
+        android:onClick="toTakeQuiz"/>
+
+    <item android:id="@+id/bottom_navigation_map"
+        android:title="Map"
+        android:titleCondensed="Map"
+        android:icon="@drawable/map_icon_blue"
+        android:onClick="toMap"/>
+
+    <item android:id="@+id/bottom_navigation_settings"
+        android:title="Settings"
+        android:titleCondensed="Settings"
+        android:icon="@drawable/settings_button_image"
+        android:onClick="toSettings"/>
+    </group>
+
+</menu>

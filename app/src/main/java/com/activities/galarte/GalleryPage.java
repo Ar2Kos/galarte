@@ -5,7 +5,9 @@ import androidx.core.content.ContextCompat;
 
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -23,6 +25,26 @@ public class GalleryPage extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean darkMode = prefs.getBoolean("pref_dark_mode", false);
+        String defaultLocation = prefs.getString("default_location", "");
+        String username = prefs.getString("username", "");
+
+        if (defaultLocation.equals("")) {
+            defaultLocation = "Bath";
+        }
+
+        if (username.equals("")) {
+            username = "Guest";
+        }
+
+        if (darkMode) {
+            setTheme(R.style.DarkTheme);
+        } else {
+            setTheme(R.style.LightTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gallery_page);
 

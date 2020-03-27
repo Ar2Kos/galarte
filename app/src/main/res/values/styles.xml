@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="LightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/paletteDarkBlue</item>
         <item name="colorPrimaryDark">@color/paletteNavy</item>
@@ -10,12 +10,13 @@
 
 
     <!-- Base application theme. -->
+    <!--
     <style name="LightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/lightColorPrimary</item>
         <item name="colorPrimaryDark">@color/lightColorPrimaryDark</item>
         <item name="colorAccent">@color/lightColorAccent</item>
     </style>
+    -->
 
     <style name="DarkTheme" parent="Theme.AppCompat">
         <item name="colorPrimary">@color/darkColorPrimary</item>
