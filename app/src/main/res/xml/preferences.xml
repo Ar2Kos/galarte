@@ -51,4 +51,19 @@
     </PreferenceCategory>
 
 
+    <PreferenceCategory
+        android:title="Style">
+
+        <ListPreference
+            android:key="style_select"
+            android:title="Style Preference"
+            android:summary="Select the style for gallery recommendations"
+            android:entries="@array/style_entries"
+            android:entryValues="@array/style_values"
+            android:defaultValue="Undecided"/>
+
+
+    </PreferenceCategory>
+
+
 </PreferenceScreen>
