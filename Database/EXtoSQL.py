@@ -2,7 +2,7 @@ import xlrd
 import MySQLdb
 
 # Open the workbook and define the worksheet
-book = xlrd.open_workbook("Database/test DB.xlsx", encoding_override ='utf-8')
+book = xlrd.open_workbook("updated new db.xlsx", encoding_override ='utf-8')
 sheet_names = book.sheet_names()
 # Establish a MySQL connection
 database = MySQLdb.connect (host="localhost", user = "root", passwd = "ip20", db = "ip")
