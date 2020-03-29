@@ -26,6 +26,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.activities.galarte.MainMenu;
 import com.activities.galarte.R;
 import com.activities.galarte.SettingsActivity;
 import com.activities.galarte.ui.login.LoginViewModel;
@@ -34,7 +35,7 @@ import com.activities.galarte.ui.login.LoginViewModelFactory;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-    private SharedPreferences prefs;
+    private SharedPreferences prefs, sp;
     private SharedPreferences.OnSharedPreferenceChangeListener listener;
     boolean darkMode;
 
@@ -43,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         darkMode = prefs.getBoolean("pref_dark_mode", false);
+        sp = getSharedPreferences("login",MODE_PRIVATE);
 
         if (darkMode) {
             setTheme(R.style.DarkTheme);
@@ -139,9 +141,23 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+                if(usernameEditText.getText().toString()!= null &&
+                        passwordEditText.getText().toString()!= null) {
+                    Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
+                    Intent nextActivity = new Intent(LoginActivity.this, MainMenu.class);
+                    startActivity(nextActivity);
+                    sp.edit().putBoolean("logged",true).apply();
+
+                }
             }
         });
+
+
+
+
     }
+
+
 
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
@@ -152,4 +168,6 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
+
 }
