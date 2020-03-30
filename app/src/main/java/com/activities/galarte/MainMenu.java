@@ -32,11 +32,6 @@ public class MainMenu extends AppCompatActivity {
         String defaultLocation = prefs.getString("default_location", "");
         String username = prefs.getString("username", "");
 
-
-
-
-
-
         if (defaultLocation.equals("")) {
             defaultLocation = "Bath";
         }
@@ -61,9 +56,7 @@ public class MainMenu extends AppCompatActivity {
         //menuInflater.inflate(0,  menu);
 
         TextView textView = findViewById(R.id.testDefaultLocation);
-
-        textView.setText("Default Location: " + defaultLocation + "\n" +
-                         "Username: " + username);
+        textView.setText("Default Location: " + defaultLocation + "\nUsername: " + username);
 
         ImageButton settingsButton = findViewById(R.id.settingsButton);
 

@@ -5,15 +5,27 @@ import androidx.core.content.ContextCompat;
 
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 public class GalleryPage extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -23,8 +35,58 @@ public class GalleryPage extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean darkMode = prefs.getBoolean("pref_dark_mode", false);
+        String defaultLocation = prefs.getString("default_location", "");
+        String username = prefs.getString("username", "");
+
+        if (defaultLocation.equals("")) {
+            defaultLocation = "Bath";
+        }
+
+        if (username.equals("")) {
+            username = "Guest";
+        }
+
+        if (darkMode) {
+            setTheme(R.style.DarkTheme);
+        } else {
+            setTheme(R.style.LightTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gallery_page);
+
+        String galleryName = getIntent().getExtras().getString("galleryName");
+
+        InputStream is = getResources().openRawResource(R.raw.place);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+
+        String line = "";
+        try {
+            while ((line = reader.readLine()) != null) {
+                String[] tokens = line.split(",");
+
+                if (tokens[0].equals(galleryName)) {
+                    TextView galleryNameTextView = findViewById(R.id.galleryName);
+                    galleryNameTextView.setText(galleryName);
+
+                    TextView cityTextView = findViewById(R.id.city);
+                    cityTextView.setText(tokens[3]);
+
+                    TextView priceTextView = findViewById(R.id.price);
+                    priceTextView.setText(tokens[1]);
+
+                    TextView detailsTextView = findViewById(R.id.detailsText);
+                    detailsTextView.setText(tokens[4]);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "The Gallery was not found", Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
 
         viewEventNames = (LinearLayout) findViewById(R.id.viewEventNames);

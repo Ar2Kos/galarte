@@ -1,11 +1,17 @@
 package com.activities.galarte;
 
+import androidx.annotation.RequiresPermission;
 import androidx.core.content.ContextCompat;
+
+import com.google.android.gms.maps.model.Marker;
 import androidx.fragment.app.FragmentActivity;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import android.Manifest;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -24,14 +30,31 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import android.os.FileUtils;
+import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.nio.Buffer;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 
 public class MapsActivity extends AppCompatActivity
         implements
+        GoogleMap.OnInfoWindowClickListener,
         OnMapReadyCallback,
         ActivityCompat.OnRequestPermissionsResultCallback {
 
@@ -66,6 +89,26 @@ public class MapsActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean darkMode = prefs.getBoolean("pref_dark_mode", false);
+        String defaultLocation = prefs.getString("default_location", "");
+        String username = prefs.getString("username", "");
+
+        if (defaultLocation.equals("")) {
+            defaultLocation = "Bath";
+        }
+
+        if (username.equals("")) {
+            username = "Guest";
+        }
+
+        if (darkMode) {
+            setTheme(R.style.DarkTheme);
+        } else {
+            setTheme(R.style.LightTheme);
+        }
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
@@ -114,17 +157,40 @@ public class MapsActivity extends AppCompatActivity
         Bitmap icon = ((BitmapDrawable) myDrawable).getBitmap();
         // Add a marker in Sydney and move the camera
         LatLng bath = new LatLng(51.3801212, -2.3595492);
-        mMap.addMarker(new MarkerOptions().position(bath).title("Centre of camera").icon(BitmapDescriptorFactory.fromBitmap(icon)));
+        //mMap.addMarker(new MarkerOptions().position(bath).title("Centre of camera").icon(BitmapDescriptorFactory.fromBitmap(icon)));
 
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bath,15f));
+        mMap.setOnInfoWindowClickListener(this);
 
-        //show icons of galleries
-        for(int count = 0; count<longitude.length; count++){
-            LatLng coord = new LatLng(latitude[count], longitude[count]);
-            mMap.addMarker(new MarkerOptions().position(coord).title("Gallery Title").snippet("Details").icon(BitmapDescriptorFactory.fromBitmap(icon)));
+        InputStream is = getResources().openRawResource(R.raw.place);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
 
+        String line = "";
+        try {
+            while ((line = reader.readLine()) != null) {
+                String[] tokens = line.split(",");
+
+                try {
+
+                    if (!tokens[0].equals("name")) {
+                        LatLng coord = new LatLng(Float.parseFloat(tokens[8]), Float.parseFloat(tokens[9]));
+                        mMap.addMarker(new MarkerOptions().position(coord).title(tokens[0]).snippet(tokens[4]).icon(BitmapDescriptorFactory.fromBitmap(icon)));
+                    }
+                } catch (Exception e) {
+                    if (tokens.length != 10) {
+                        for (String token:
+                             tokens) {
+                            System.out.println(token);
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "The specified file was not found", Toast.LENGTH_SHORT).show();
         }
+
     }
     private void enableMyLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -136,6 +202,34 @@ public class MapsActivity extends AppCompatActivity
             // Access to the location has been granted to the app.
             mMap.setMyLocationEnabled(true);
         }
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        System.out.print("boooooooooooooOOOOOOOOO");
+        Intent galleryPageIntent = new Intent(this, GalleryPage.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("galleryName", marker.getTitle());
+        galleryPageIntent.putExtras(bundle);
+        startActivity(galleryPageIntent);
+    }
+
+    public void toSettings(MenuItem item) {
+        Intent settingsIntent = new Intent(this, SettingsActivity.class);
+        item.setChecked(true);
+        startActivity(settingsIntent);
+    }
+
+    public void toTakeQuiz(MenuItem item) {
+        Intent takeQuizIntent = new Intent(this, QuestionPage2.class);
+        item.setChecked(true);
+        startActivity(takeQuizIntent);
+    }
+
+    public void toMap(MenuItem item) {
+        Intent mapIntent = new Intent(this, MapsActivity.class);
+        item.setChecked(true);
+        startActivity(mapIntent);
     }
 
 }

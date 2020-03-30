@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--
     <Preference
         android:key="backButtonSettings"
         android:widgetLayout="@layout/back_button_layout"/>
+    -->
 
     <PreferenceCategory
         android:title="Display">
@@ -36,7 +38,7 @@
             android:summary="Select the region the app will run in"
             android:entries="@array/region_entries"
             android:entryValues="@array/region_values"
-            android:defaultValue="united_kingdom"/>
+            android:defaultValue="United Kingdom"/>
 
     </PreferenceCategory>
 
