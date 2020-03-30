@@ -85,6 +85,10 @@ public class SettingsActivity extends AppCompatActivity {
     public void logout(View view) {
         // Edit preferences to remove the username
         editor.putString("username", "");
+        editor.putString("default_location", "Bath");
+        editor.putString("Region", "United Kingdom");
+        editor.putInt("default_price", 10);
+        editor.putString("style_select", "Undecided");
         editor.commit();
         restart();
     }
