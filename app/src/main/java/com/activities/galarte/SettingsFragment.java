@@ -18,7 +18,8 @@ public class SettingsFragment extends PreferenceFragment {
     private static final String PREF_DARK_MODE = "pref_dark_mode";
     private SharedPreferences.OnSharedPreferenceChangeListener listener;
     private SharedPreferences prefs;
-    String result = "text style";
+    String result="test style";
+    //String result = FeedbackPage.getStyle();
     String finalStyle;
 
     @Override
@@ -31,7 +32,7 @@ public class SettingsFragment extends PreferenceFragment {
         int price = prefs.getInt("default_price", 10);
         String style_withq = prefs.getString("style", result);
         String style_withoutq = prefs.getString("style_select", "");
-
+//
         super.onCreate(savedInstanceState);
 
         if (username.equals("")){
@@ -50,8 +51,8 @@ public class SettingsFragment extends PreferenceFragment {
             Preference stylePreference_with =  findPreference("style");
             stylePreference_with.setSummary(style_withq);
 
-////            Preference pricePreference = findPreference("default_price");
-////            pricePreference.setSummary(price);
+//            Preference pricePreference = findPreference("default_price");
+//            pricePreference.setSummary(price);
 
 
             finalStyle = String.valueOf(stylePreference_with);
@@ -67,8 +68,8 @@ public class SettingsFragment extends PreferenceFragment {
 
             finalStyle = String.valueOf(stylePreference_without);
 
-////            ListPreference stylePreference = (ListPreference) findPreference("style_select");
-////            stylePreference.setSummary(style);
+//            ListPreference stylePreference = (ListPreference) findPreference("style_select");
+//            stylePreference.setSummary(style);
 
         }
 
@@ -79,19 +80,18 @@ public class SettingsFragment extends PreferenceFragment {
         regionPreference.setSummary(region);
 
 
-////        ListPreference stylePreference_without = (ListPreference) findPreference("style_select");
-////        stylePreference_without.setSummary(style_withoutq);
-//////
-////        Preference stylePreference_with =  findPreference("style");
-////        stylePreference_with.setSummary(style_withq);
-//
-//
+//        ListPreference stylePreference_without = (ListPreference) findPreference("style_select");
+//        stylePreference_without.setSummary(style_withoutq);
+
+//        Preference stylePreference_with =  findPreference("style");
+//        stylePreference_with.setSummary(style_withq);
+
     }
 
     public String getFinalStyle(){
         return finalStyle;
     }
-
+//
 }
 
 
