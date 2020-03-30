@@ -17,13 +17,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.activities.galarte.data.model.LoggedInUser;
 
 public class MainMenu extends AppCompatActivity {
-
+    ViewFlipper v_flipper;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
 
@@ -31,6 +33,7 @@ public class MainMenu extends AppCompatActivity {
         boolean darkMode = prefs.getBoolean("pref_dark_mode", false);
         String defaultLocation = prefs.getString("default_location", "");
         String username = prefs.getString("username", "");
+
 
         if (defaultLocation.equals("")) {
             defaultLocation = "Bath";
@@ -49,9 +52,19 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+
+        int images[] = {R.drawable.s0, R.drawable.s8,R.drawable.s9, R.drawable.s11};//,R.drawable.s6, R.drawable.s5,R.drawable.s7, R.drawable.s8 };
+        v_flipper = findViewById(R.id.v_flipper);
+
+        for(int i = 0; i<images.length; i++) {
+            fi(images[i]);
+        }
+
+        for (int image: images){
+            fi(image);
+        }
+
         //Menu menu = findViewById(R.id.bottom_navigation);
-
-
         //MenuInflater menuInflater = new MenuInflater(this);
         //menuInflater.inflate(0,  menu);
 
@@ -69,6 +82,19 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
+
+    public void fi(int image){
+        ImageView imageView = new ImageView(this);
+        imageView.setBackgroundResource(image);
+
+        v_flipper.addView(imageView);
+        v_flipper.setFlipInterval(4000);
+        v_flipper.setAutoStart(true);
+
+        v_flipper.setInAnimation(this, android.R.anim.fade_in);
+        v_flipper.setOutAnimation(this, android.R.anim.fade_out);
+
+    }
     public void openSettings() {
         Intent settingsIntent = new Intent(this, SettingsActivity.class);
         startActivity(settingsIntent);
