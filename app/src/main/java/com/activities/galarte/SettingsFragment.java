@@ -18,7 +18,7 @@ public class SettingsFragment extends PreferenceFragment {
     private static final String PREF_DARK_MODE = "pref_dark_mode";
     private SharedPreferences.OnSharedPreferenceChangeListener listener;
     private SharedPreferences prefs;
-    String result = QuestionPage2.getQestionareResult();
+    String result = QuestionPage2.getQuestionareResult();
     String finalStyle;
 
     @Override

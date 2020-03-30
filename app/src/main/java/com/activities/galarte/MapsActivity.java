@@ -221,7 +221,7 @@ public class MapsActivity extends AppCompatActivity
     }
 
     public void toTakeQuiz(MenuItem item) {
-        Intent takeQuizIntent = new Intent(this, QuestionPage2.class);
+        Intent takeQuizIntent = new Intent(this, QuestionPage.class);
         item.setChecked(true);
         startActivity(takeQuizIntent);
     }

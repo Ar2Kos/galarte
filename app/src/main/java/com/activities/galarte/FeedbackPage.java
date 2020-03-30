@@ -58,7 +58,7 @@ public class FeedbackPage extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainMenu = new Intent(view.getContext(),MainPage.class);
+                Intent mainMenu = new Intent(view.getContext(),MainMenu.class);
                 startActivityForResult(mainMenu,0);
             }
         });
@@ -506,15 +506,15 @@ public class FeedbackPage extends AppCompatActivity {
 
         double[] scores = new double[8];
         // cubism min = 15,max = 44
-        scores[0] = (cubismScore - 15)/44.0;
+        scores[0] = (cubismScore - 15)/30.0;
         // surrealism, abstract min = 16 , max = 46
-        scores[1] = (surrealismScore - 16)/46.0;
-        scores[2] = (abstractScore - 16)/46.0;
-        scores[3] = (romanticismScore - 16)/46.0;
-        scores[4] = (neoclassicismScore - 16)/46.0;
-        scores[5] = (impressionismScore - 16)/46.0;
-        scores[6] = (realismScore - 16)/46.0;
-        scores[7] = (contemporaryScore - 16)/46.0;
+        scores[1] = (abstractScore - 16)/30.0;
+        scores[2] = (surrealismScore - 16)/30.0;
+        scores[3] = (romanticismScore - 16)/30.0;
+        scores[4] = (neoclassicismScore - 16)/30.0;
+        scores[5] = (impressionismScore - 16)/30.0;
+        scores[6] = (realismScore - 16)/30.0;
+        scores[7] = (contemporaryScore - 16)/30.0;
         System.out.println(Arrays.toString(answers));
         System.out.println(Arrays.toString(scores));
 
@@ -551,18 +551,21 @@ public class FeedbackPage extends AppCompatActivity {
 
         int[] styleIndex = {-1,-1,-1};
         int index = 0;
+        boolean foundPlace = false;
 
         for(int i = 0; i < scores.length; i++) {
-            if(scores[i] > 0.15) {
-                index = 2;
-                for (int j = 0; j < styleIndex.length; j++) {
+            if(scores[i] > 0.20) {
+                index = 0;
+                foundPlace = false;
+                for (int j = styleIndex.length-1; 0 <= j && !foundPlace; j--) {
                     if(styleIndex[j] != -1) {
                         if (scores[i] > scores[styleIndex[j]]) {
-                            if(j > 0) {
-                                styleIndex[j-1] = styleIndex[j];
+                            if(j < 2) {
+                                styleIndex[j+1] = styleIndex[j];
                             }
                         } else {
-                            index = j-1;
+                            index = j+1;
+                            foundPlace = true;
                         }
                     }
                 }
@@ -571,8 +574,9 @@ public class FeedbackPage extends AppCompatActivity {
                 }
             }
         }
-        System.out.print(Arrays.toString(styleIndex));
 
+
+        System.out.print(Arrays.toString(styleIndex));
 
         for(int i = 0; i < styleIndex.length; i++) {
             switch (styleIndex[i]) {
@@ -630,12 +634,12 @@ public class FeedbackPage extends AppCompatActivity {
             }
         }
 
-        if(styleIndex[2] == -1) {
+        if(styleIndex[0] == -1) {
             findViewById(R.id.no_genre_text).setVisibility(View.VISIBLE);
         }
 
 
-        switch (styleIndex[2]) {
+        switch (styleIndex[0]) {
             case 0:
                 style = "cubism";
                 break;

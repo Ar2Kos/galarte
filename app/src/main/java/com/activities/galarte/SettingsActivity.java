@@ -22,7 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
     String Region;
     int price;
     String style;
-    String result = QuestionPage2.getQestionareResult();
+    String result = QuestionPage2.getQuestionareResult();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +113,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void toTakeQuiz(MenuItem item) {
         item.setChecked(true);
-        Intent takeQuizIntent = new Intent(this, QuestionPage2.class);
+        Intent takeQuizIntent = new Intent(this, QuestionPage.class);
         startActivity(takeQuizIntent);
     }
 

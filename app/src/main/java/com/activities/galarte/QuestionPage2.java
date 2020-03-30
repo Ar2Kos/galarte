@@ -214,7 +214,7 @@ public class QuestionPage2 extends AppCompatActivity {
     }
 
 
-    static String getQestionareResult() {
+    static String getQuestionareResult() {
 
         return result;
     }
