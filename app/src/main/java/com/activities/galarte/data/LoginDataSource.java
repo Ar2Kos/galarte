@@ -16,8 +16,8 @@ public class LoginDataSource {
 
         try {
             // TODO: handle loggedInUser authentication
-            if (username.equals("jhd") && password.equals("password")) {
-                LoggedInUser testUser = new LoggedInUser("1", "James Davenport");
+            if (username!=null && password!=null) {
+                LoggedInUser testUser = new LoggedInUser("1", username);
                 return new Result.Success<>(testUser);
             } else {
                 return new Result.Error(new Exception("Not valid login"));

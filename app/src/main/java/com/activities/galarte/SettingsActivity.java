@@ -1,16 +1,10 @@
 package com.activities.galarte;
 import android.content.SharedPreferences;
-import android.preference.EditTextPreference;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.activities.galarte.ui.login.LoginActivity;
@@ -25,9 +19,15 @@ public class SettingsActivity extends AppCompatActivity {
     boolean darkMode;
     String defaultLocation;
     String username;
+    String Region;
+    int price;
+    String style;
+    String result = QuestionPage2.getQestionareResult();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
 
         // Retrieve preferences
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -36,6 +36,8 @@ public class SettingsActivity extends AppCompatActivity {
         darkMode = prefs.getBoolean("pref_dark_mode", false);
         defaultLocation = prefs.getString("default_location", "");
         username = prefs.getString("username", "");
+//        price = prefs.getInt("default_price", 10);
+        style = prefs.getString("style_select", result);
 
         if (darkMode) {
             setTheme(R.style.DarkTheme);
@@ -43,32 +45,21 @@ public class SettingsActivity extends AppCompatActivity {
             setTheme(R.style.LightTheme);
         }
 
-        if (username.equals("")){
+        if (username.equals("")) {
             PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-        } else {
-            PreferenceManager.setDefaultValues(this, R.xml.preferences_logged_in, false);
+        }else if (result == null){
+            PreferenceManager.setDefaultValues(this, R.xml.preferences_logged_in_without_question, false);
+        }else{
+            PreferenceManager.setDefaultValues(this, R.xml.preferences_logged_in_with_question, false);
+
         }
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        if (darkMode) {
-//            toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
-//        } else {
-//            toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
-//        }
-//
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                finish();
-//            }
-//        });
-
-
         // Add preferences to layout
-        if(findViewById(R.id.settings) != null) {
+        if (findViewById(R.id.settings) != null) {
             if (savedInstanceState != null) {
                 return;
             }
@@ -83,24 +74,21 @@ public class SettingsActivity extends AppCompatActivity {
         };
         prefs.registerOnSharedPreferenceChangeListener(listener);
 
-
-
-
     }
 
-    public void restart(){
+    public void restart() {
         // Restart activity
         Intent i = new Intent(this, SettingsActivity.class);
         startActivity(i);
         finish();
     }
 
-    public void backToMainMenu(View view){
+    public void backToMainMenu(View view) {
         Intent mainMenuIntent = new Intent(this, MainMenu.class);
         startActivity(mainMenuIntent);
     }
 
-    public void goToLogin(View view){
+    public void goToLogin(View view) {
         Intent loginIntent = new Intent(this, LoginActivity.class);
         startActivity(loginIntent);
         finish();
@@ -109,9 +97,29 @@ public class SettingsActivity extends AppCompatActivity {
     public void logout(View view) {
         // Edit preferences to remove the username
         editor.putString("username", "");
+        editor.putString("default_location", "Bath");
+        editor.putString("Region", "United Kingdom");
+        editor.putInt("default_price", 10);
+        editor.putString("style_select", "Undecided");
         editor.commit();
         restart();
     }
 
+    public void toSettings(MenuItem item) {
+        item.setChecked(true);
+        Intent settingsIntent = new Intent(this, SettingsActivity.class);
+        startActivity(settingsIntent);
+    }
 
+    public void toTakeQuiz(MenuItem item) {
+        item.setChecked(true);
+        Intent takeQuizIntent = new Intent(this, QuestionPage2.class);
+        startActivity(takeQuizIntent);
+    }
+
+    public void toMap(MenuItem item) {
+        item.setChecked(true);
+        Intent mapIntent = new Intent(this, MapsActivity.class);
+        startActivity(mapIntent);
+    }
 }

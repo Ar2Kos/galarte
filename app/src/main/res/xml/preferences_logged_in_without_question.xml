@@ -20,9 +20,9 @@
         android:title="Account">
 
         <Preference
-            android:title="Login"
-            android:key="@string/login_button"
-            android:widgetLayout="@layout/login_button_layout">
+            android:title="Username"
+            android:key="Logout"
+            android:widgetLayout="@layout/logout_button_layout">
         </Preference>
 
     </PreferenceCategory>
@@ -48,8 +48,31 @@
             android:title="@string/pref_default_location_title"
             android:summary="@string/pref_default_location_summary"></EditTextPreference>
 
+
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="Price">
+
+<!--        <EditTextPreference-->
+<!--            android:key="default_price"-->
+<!--            android:title="Price Preferences"-->
+<!--            android:summary="Set upper bound for how much the gallery entrance can cost" />-->
+<!--        <SeekBarPreference-->
+<!--            android:key="default_price"-->
+<!--            android:title="Price Preferences"-->
+<!--            android:summary="@string/price_summ"-->
+<!--            android:defaultValue="@integer/seek_bar_default"-->
+<!--            android:max="@integer/seek_bar_max"-->
+<!--            android:min="@integer/seek_bar_min" />-->
+        <SeekBarPreference
+            android:key="@string/default_price"
+            android:title="Price Preferences"
+            android:summary="Set upper bound for how much the gallery entrance can cost"
+            android:max="10"
+            android:defaultValue="10" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:title="Style">

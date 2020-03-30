@@ -14,6 +14,7 @@ public class QuestionPage2 extends AppCompatActivity {
     private Button btn_next;
     private RadioGroup[] questions = new RadioGroup[7];
     private int[] answers;
+    static String result = "test style";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,4 +161,19 @@ public class QuestionPage2 extends AppCompatActivity {
 
         return i==questions.length;
     }
+
+    static boolean doneQuest() {
+        if (result != null){
+            return true;
+        }
+        return false;
+    }
+
+
+    static String getQestionareResult() {
+
+        return result;
+    }
+
+
 }

@@ -2,7 +2,7 @@ import xlrd
 import MySQLdb
 
 # Open the workbook and define the worksheet
-book = xlrd.open_workbook("Database/test DB.xlsx", encoding_override ='utf-8')
+book = xlrd.open_workbook("updated new db.xlsx", encoding_override ='utf-8')
 sheet_names = book.sheet_names()
 # Establish a MySQL connection
 database = MySQLdb.connect (host="localhost", user = "root", passwd = "ip20", db = "ip")
@@ -101,10 +101,8 @@ for i in range (0,len(sheet_names)):
 query = """INSERT INTO LOCATION (PLACE_ID, AUTHOR_ID,Piece) VALUES (%s, %s, %s)"""
 for i in ART_PIECE_name:
 	cursor.execute("""SELECT ID FROM PLACE WHERE name = '%s' """ % (name_of_location.strip()))
-	print("AT")
 	PLACE_ID =  cursor.fetchall()
 	cursor.execute("""SELECT ID,author FROM ART_PIECE WHERE name = '%s' """ % (i.strip()))
-	print("AP")
 	Piece =  cursor.fetchall()
 
 

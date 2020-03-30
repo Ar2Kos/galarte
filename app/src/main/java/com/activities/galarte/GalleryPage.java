@@ -33,7 +33,7 @@ public class GalleryPage extends AppCompatActivity implements OnMapReadyCallback
 
         //TODO: map link -> make button send you to the map page
         //TODO: solve event -> drop down?
-        //TODO: add picture title city price  -> link to data base
+        //TODO: add picture title city price  -> link to database
         //TODO: add scroll bar
         //TODO: back button
 

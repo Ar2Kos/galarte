@@ -18,12 +18,39 @@
         <item>Spain</item>
     </string-array>
 
+
     <string-array name="region_values">
         <item>United Kingdom</item>
         <item>United States</item>
         <item>France</item>
         <item>Italy</item>
         <item>Spain</item>
+    </string-array>
+
+    <string-array name="style_entries">
+        <item>Abstract</item>
+        <item>Cubism</item>
+        <item>Realism</item>
+        <item>Contemporary</item>
+        <item>Neoclassicism</item>
+        <item>Impressionism</item>
+        <item>Modernism</item>
+        <item>Romanticism</item>
+        <item>Surrealism</item>
+        <item>Undecided</item>
+    </string-array>
+
+    <string-array name="style_values">
+        <item>Abstract</item>
+        <item>Cubism</item>
+        <item>Realism</item>
+        <item>Contemporary</item>
+        <item>Neoclassicism</item>
+        <item>Impressionism</item>
+        <item>Modernism</item>
+        <item>Romanticism</item>
+        <item>Surrealism</item>
+        <item>Undecided</item>
     </string-array>
 
 </resources>
