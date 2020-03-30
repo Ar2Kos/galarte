@@ -39,17 +39,17 @@ public class QuestionPage2 extends AppCompatActivity {
                 for (int i =0; i < questions.length; i++) {
                     radBtn = findViewById(questions[i].getCheckedRadioButtonId());
 
-                    switch(radBtn.getText().toString()) {
-                        case "1":
+                    switch(radBtn.getText().toString().charAt(0)) {
+                        case '1':
                             currAnswers[i] = 1;
                             break;
-                        case "2" :
+                        case '2' :
                             currAnswers[i] = 2;
                             break;
-                        case "3" :
+                        case '3' :
                             currAnswers[i] = 3;
                             break;
-                        case "Don't Know":
+                        case '4':
                             currAnswers[i] = -1;
                             break;
                         default:

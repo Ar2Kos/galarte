@@ -181,21 +181,22 @@
         <!-- 3 -->
         <!--android:textAppearance="@style/CustomTextTitle" -->
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:src="@drawable/ic_launcher_foreground"
+            android:gravity="center"
             android:contentDescription="@string/qs_img_not_found"/>
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:src="@drawable/ic_launcher_foreground"
+            android:gravity="center"
             android:contentDescription="@string/qs_img_not_found"/>
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:src="@drawable/q3_img3"
+            android:gravity="center"
             android:contentDescription="@string/qs_img_not_found"/>
         <RadioGroup
             android:id="@+id/q3_rad_group"
@@ -227,22 +228,31 @@
         </RadioGroup>
 
         <!-- 4 -->
-        <ImageView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/q4_img1"
+            android:gravity="center"
             android:contentDescription="@string/qs_img_not_found"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/q4_img2"
-            android:contentDescription="@string/qs_img_not_found"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/q4_img2"
+                android:gravity="center"
+                android:contentDescription="@string/qs_img_not_found"/>
+        </LinearLayout>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:src="@drawable/q4_img3"
+            android:gravity="center"
             android:contentDescription="@string/qs_img_not_found"/>
         <RadioGroup
             android:id="@+id/q4_rad_group"

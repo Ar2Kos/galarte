@@ -1,16 +1,30 @@
 <resources>
     <string name="app_name">Galarte</string>
     <string name="qs_img_not_found">Question image could not be found</string>
-    <string name="q0">For each question, pick your favourite option out of the 3</string>
+    <string name="q0">For each question, pick your favourite option (the image that you like the most). If you have no preference or otherwise can\'t decide please select \'Don\'t Know\' (this is just as useful as picking an image) \nIf the images are ordered from left to right, top to bottom for the answers.</string>
     <string name="q1">For each question, pick your favourite option out of the 3</string>
     <string name="c1">1</string>
     <string name="c2">2</string>
     <string name="c3">3</string>
-    <string name="skip">Don\'t Know</string>
+    <string name="skip">4 Don\'t Know</string>
     <string name="feedback_title">Your style:</string>
     <string name="fb1">Name of Style:</string>
     <string name="done">Done</string>
     <string name="next">Next</string>
+    <string name="no_genre_found">Could not find a genre you liked. This probably isn\'t because you don\'t like any art, but instead due to our questionnaire being flawed. However, since we could not find your preferred genre the map will just show all galleries in the area</string>
+    <string name="q13">What is your opinion on the meaning of art compared to how it looks</string>
+    <string name="q13_a1">1. I mostly care about the meaning behind the painting</string>
+    <string name="q13_a2">2. It\'s important to me that art has meaning, but still looks good independent of it</string>
+    <string name="q13_a3">3. I mostly care about how the art looks, not so much about the meaning behind it</string>
+    <string name="q13_a4">4. I don\'t have any preference</string>
+    <string name="abstract_desc">Strictly speaking, the word abstract means to separate or withdraw something from something else. The term can be applied to art that is based an object, figure or landscape, where forms have been simplified or schematised. It is also applied to art that uses forms, such as geometric shapes or gestural marks, which have no source at all in an external visual reality. Some artists of this ‘pure’ abstraction have preferred terms such as concrete art or non-objective art, but in practice the word abstract is used across the board and the distinction between the two is not always obvious.</string>
+    <string name="contemporary_desc">Contemporary art is the art of today, produced in the second half of the 20th century or in the 21st century. Contemporary artists work in a globally influenced, culturally diverse, and technologically advancing world. Their art is a dynamic combination of materials, methods, concepts, and subjects that continue the challenging of boundaries that was already well underway in the 20th century. Diverse and eclectic, contemporary art as a whole is distinguished by the very lack of a uniform, organising principle, ideology, or "-ism". Contemporary art is part of a cultural dialogue that concerns larger contextual frameworks such as personal and cultural identity, family, community, and nationality. </string>
+    <string name="cubism_desc">The movement was pioneered by Pablo Picasso and Georges Braque, joined by Jean Metzinger, Albert Gleizes, Robert Delaunay, Henri Le Fauconnier, and Fernand Leger. One primary influence that led to Cubism was the representation of three-dimensional form in the late works of Paul Cezanne. A retrospective of Cezanne\'s paintings had been held at the Salon d\'Automne of 1904, current works were displayed at the 1905 and 1906 Salon d\'Automne, followed by two commemorative retrospectives after his death in 1907. In Cubist artwork, objects are analyzed, broken up and reassembled in an abstracted form—instead of depicting objects from a single viewpoint, the artist depicts the subject from a multitude of viewpoints to represent the subject in a greater context.</string>
+    <string name="impressionism_desc">Is an art movement characterized by relatively small, thin, yet visible brush strokes, open composition, emphasis on accurate depiction of light in its changing qualities (often accentuating the effects of the passage of time), ordinary subject matter, inclusion of movement as a crucial element of human perception and experience, and unusual visual angles. Impressionism originated with a group of Paris-based artists whose independent exhibitions brought them to prominence during the 1870s and 1880s. </string>
+    <string name="neoclassicism_desc"> Neoclassicism was born in Rome largely thanks to the writings of Johann Joachim Winckelmann, at the time of the rediscovery of Pompeii and Herculaneum, but its popularity spread all over Europe as a generation of European art students finished their Grand Tour and returned from Italy to their home countries with newly rediscovered Greco-Roman ideals. The main Neoclassical movement coincided with the 18th-century Age of Enlightenment, and continued into the early 19th century, laterally competing with Romanticism. In architecture, the style continued throughout the 19th, 20th and up to the 21st century. </string>
+    <string name="realism_desc">This movement was a reaction against romanticism. Romanticism was an earlier movement that presented the world in much more idealized terms. </string>
+    <string name="romanticism_desc">The movement emphasized intense emotion as an authentic source of aesthetic experience, placing new emphasis on such emotions as apprehension, horror and terror, and awe—especially that experienced in confronting the new aesthetic categories of the sublimity and beauty of nature. It elevated folk art and ancient custom to something noble, but also spontaneity as a desirable characteristic (as in the musical impromptu). In contrast to the Rationalism and Classicism of the Enlightenment, Romanticism revived medievalism and elements of art and narrative perceived as authentically medieval in an attempt to escape population growth, early urban sprawl, and industrialism. </string>
+    <string name="surrealism_desc">Is best known for its visual artworks and writings. Artists painted unnerving, illogical scenes, sometimes with photographic precision, creating strange creatures from everyday objects, and developing painting techniques that allowed the unconscious to express itself.</string>
 
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>

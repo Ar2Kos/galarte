@@ -145,9 +145,10 @@
                 android:contentDescription="@string/qs_img_not_found"/>
         </LinearLayout>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:src="@drawable/q9_img3"
+            android:gravity="center"
             android:contentDescription="@string/qs_img_not_found"/>
         <RadioGroup
             android:id="@+id/q2_rad_group"
@@ -198,9 +199,10 @@
                 android:contentDescription="@string/qs_img_not_found"/>
         </LinearLayout>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:src="@drawable/q10_img3"
+            android:gravity="center"
             android:contentDescription="@string/qs_img_not_found"/>
         <RadioGroup
             android:id="@+id/q3_rad_group"
@@ -251,9 +253,10 @@
                 android:contentDescription="@string/qs_img_not_found"/>
         </LinearLayout>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:src="@drawable/q11_img3"
+            android:gravity="center"
             android:contentDescription="@string/qs_img_not_found"/>
         <RadioGroup
             android:id="@+id/q4_rad_group"
@@ -339,55 +342,36 @@
 
         <!-- 13 -->
         <!--android:textAppearance="@style/CustomTextTitle" -->
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="@string/qs_img_not_found"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="@string/qs_img_not_found"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="@string/qs_img_not_found"/>
-        </LinearLayout>
+            android:text="@string/q13"/>
         <RadioGroup
             android:id="@+id/q6_rad_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:orientation="vertical"
+            android:gravity="left">
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/c1">
+                android:text="@string/q13_a1">
             </RadioButton>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/c2">
+                android:text="@string/q13_a2">
             </RadioButton>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/c3">
+                android:text="@string/q13_a3">
             </RadioButton>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/skip">
+                android:text="@string/q13_a4">
             </RadioButton>
         </RadioGroup>
 
@@ -398,7 +382,5 @@
             android:gravity="end"
             android:enabled="false"
             android:text="@string/done"/>
-
-
     </LinearLayout>
 </ScrollView>
