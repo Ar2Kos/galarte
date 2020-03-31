@@ -145,6 +145,8 @@ CREATE TABLE `place` (
   `price` int DEFAULT NULL,
   `country` varchar(35) NOT NULL,
   `city` varchar(35) DEFAULT NULL,
+  `main_style` int DEFAULT NULL,
+  `description` text,
   `latitude` int DEFAULT NULL,
   `longitude` int DEFAULT NULL,
   PRIMARY KEY (`ID`)
@@ -157,8 +159,32 @@ CREATE TABLE `place` (
 
 LOCK TABLES `place` WRITE;
 /*!40000 ALTER TABLE `place` DISABLE KEYS */;
-INSERT INTO `place` VALUES (1,'Beaux Arts',0,'United-Kingdom','Bath',NULL,NULL),(2,'The Bath Gallery',5,'United-Kingdom','Bath',NULL,NULL),(3,'The Louvre',15,'France','Paris',NULL,NULL),(4,'Victoria Art Gallery',0,'United-Kingdom','Bath',NULL,NULL),(5,'The Holburne Museum',7,'United-Kingdom','Bath',NULL,NULL),(6,'44AD artspace',5,'United-Kingdom','Bath',NULL,NULL),(7,'Gallery Nine',0,'United-Kingdom','Bath',NULL,NULL),(8,'Rostra Gallery',5,'United-Kingdom','Bath',NULL,NULL),(9,'Castle Fine Art',6,'United-Kingdom','Bath',NULL,NULL),(10,'Whitewall Galleries',0,'United-Kingdom','Bath',NULL,NULL);
+INSERT INTO `place` VALUES (1,'Beaux Arts',0,'United-Kingdom','Bath',9,'Beaux Arts is the longest established commercial gallery in Bath and has been located in the same beautiful building for nearly forty years. Beaux Arts Bath is the sister gallery to Beaux Arts in Maddox Street, London W1S.',51,-2),(2,'The Bath Gallery',5,'United-Kingdom','Bath',2,'Here you will find a collection of high-resolution images of Bath and the\nsurrounding area. Bath is one of the world s most stunning cities. ',51,-2),(3,'The Louvre',15,'France','Paris',7,'flemme de remplir mais le louvre tu connais',49,2),(4,'Victoria Art Gallery',0,'United-Kingdom','Bath',3,'The Victoria Art Gallery is a public art museum in Bath, Somerset, England. It was opened in 1900 to commemorate Queen Victoria s diamond jubilee. It is a Grade II* listed building and houses over 1500 objects of art including a collection of oil paintings from British artists dating from 1700 onwards.',51,-2),(5,'The Holburne Museum',7,'United-Kingdom','Bath',9,'The Holburne Museum is located in Sydney Pleasure Gardens, Bath, Somerset, England. The city s first public art gallery, the Grade I listed building, is home to fine and decorative arts built around the collection of Sir William Holburne.',51,-2),(6,'44AD artspace',5,'United-Kingdom','Bath',3,'44AD is an artspace art gallery and artist studios in Bath, specialising in modern contemporary exhibitions and visual arts events.',51,-2),(7,'Gallery Nine',0,'United-Kingdom','Bath',3,'A unique gallery displaying a large variety of contemporary collectable jewellery,\nceramics, prints, and textiles. ',51,-2),(8,'Rostra Gallery',5,'United-Kingdom','Bath',7,'Rostra Gallery has established a reputation for presenting high quality,\naccessible art in a relaxed and friendly environment. ',51,-2),(9,'Castle Fine Art',6,'United-Kingdom','Bath',3,'Set in a beautiful Grade II listed building, our Bath gallery has a dedicated exhibition space for art focuses and one of the largest permanent exhibitions of Bob Dylan artwork anywhere in the world. It s well worth a visit next time you are in the city, which is known for its historic Roman spas, Medieval heritage and stately Georgian architecture. ',51,-2),(10,'Whitewall Galleries',0,'United-Kingdom','Bath',5,'Whitewall Galleries offers beautiful and innovative original paintings, collectable\neditions and sculptures from internationally acclaimed artists. Whitewall Galleries is an exclusive range of art galleries across the UK,\nshowcasing a unique portfolio of fine art.',51,-2);
 /*!40000 ALTER TABLE `place` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `psw`
+--
+
+DROP TABLE IF EXISTS `psw`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `psw` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `value` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `psw`
+--
+
+LOCK TABLES `psw` WRITE;
+/*!40000 ALTER TABLE `psw` DISABLE KEYS */;
+/*!40000 ALTER TABLE `psw` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -249,4 +275,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-29 12:45:32
+-- Dump completed on 2020-03-31 21:21:17

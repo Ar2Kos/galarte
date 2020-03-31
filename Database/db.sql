@@ -61,6 +61,8 @@ CREATE TABLE PLACE (
  price INT,
  country VARCHAR (35) NOT NULL,
  city VARCHAR (35),
+ main_style INT,
+ description TEXT,
  latitude INT,
  longitude INT,
  PRIMARY KEY (ID));

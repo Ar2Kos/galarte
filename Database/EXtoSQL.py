@@ -27,7 +27,7 @@ for i in range (0,len(sheet_names)):
 	elif sheet_names[i] == "ART_PIECE":
 		query = """INSERT INTO ART_PIECE (name, author,style,date, description) VALUES (%s, %s, %s,%s,%s)"""
 	elif sheet_names[i] == "PLACE":
-		query = """INSERT INTO PLACE (name, price,country,city) VALUES (%s, %s, %s,%s)"""
+		query = """INSERT INTO PLACE (name, price,country,city,main_style,description,latitude,longitude) VALUES (%s, %s, %s,%s,%s,%s,%s,%s)"""
 
 	# Create a For loop to iterate through each row in the XLS file, starting at row 2 to skip the headers
 	for r in range(1, sheet.nrows):
@@ -88,8 +88,14 @@ for i in range (0,len(sheet_names)):
 				price 			= int(sheet.cell(r,1).value)
 				country 		= sheet.cell(r,2).value
 				city 			= sheet.cell(r,3).value
-				
-				values = (name,price,country,city)	
+				main_style		= sheet.cell(r,4).value
+				cursor.execute("SELECT ID FROM STYLE WHERE name= '%s' """ % (main_style.strip()))
+				main_style =  cursor.fetchall()
+				desc			= sheet.cell(r,5).value
+				latitude		= sheet.cell(r,6).value
+				longitude		= sheet.cell(r,7).value
+
+				values = (name,price,country,city,main_style[0][0],desc,latitude,longitude)	
 
 			# Execute sql Query
 			print(values)
@@ -111,6 +117,7 @@ for i in ART_PIECE_name:
 	cursor.execute(query, values)
 
 	database.commit()
+
 
 # Close the cursor
 cursor.close()
