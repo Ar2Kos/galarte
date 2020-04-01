@@ -80,6 +80,15 @@ public class GalleryPage extends AppCompatActivity implements OnMapReadyCallback
 
                     TextView detailsTextView = findViewById(R.id.detailsText);
                     detailsTextView.setText(tokens[5]);
+
+                    Button btn1 = findViewById(R.id.btn1);
+                    btn1.setText(tokens[6]);
+
+                    Button btn2 = findViewById(R.id.btn2);
+                    btn2.setText(tokens[7]);
+
+                    Button btn3 = findViewById(R.id.btn3);
+                    btn3.setText(tokens[8]);
                 }
             }
         } catch (Exception e) {
