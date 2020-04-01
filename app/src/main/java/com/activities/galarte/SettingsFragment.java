@@ -19,6 +19,7 @@ public class SettingsFragment extends PreferenceFragment {
     private SharedPreferences.OnSharedPreferenceChangeListener listener;
     private SharedPreferences prefs;
     String result = FeedbackPage.getStyle();
+
     String finalStyle;
 
     @Override

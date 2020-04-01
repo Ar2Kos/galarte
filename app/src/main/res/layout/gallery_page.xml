@@ -52,7 +52,7 @@
 
     <TextView
         android:id="@+id/price"
-        android:layout_width="41dp"
+        android:layout_width="60dp"
         android:layout_height="29dp"
         android:text="price"
         app:layout_constraintEnd_toEndOf="parent"

@@ -76,10 +76,10 @@ public class GalleryPage extends AppCompatActivity implements OnMapReadyCallback
                     cityTextView.setText(tokens[3]);
 
                     TextView priceTextView = findViewById(R.id.price);
-                    priceTextView.setText(tokens[1]);
+                    priceTextView.setText("Price £" + tokens[1]);
 
                     TextView detailsTextView = findViewById(R.id.detailsText);
-                    detailsTextView.setText(tokens[4]);
+                    detailsTextView.setText(tokens[5]);
                 }
             }
         } catch (Exception e) {

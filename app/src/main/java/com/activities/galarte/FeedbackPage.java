@@ -58,7 +58,7 @@ public class FeedbackPage extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainMenu = new Intent(view.getContext(),MainMenu.class);
+                Intent mainMenu = new Intent(view.getContext(),MapsActivity.class);
                 startActivityForResult(mainMenu,0);
             }
         });

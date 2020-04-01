@@ -1,62 +1,41 @@
 package com.activities.galarte;
 
-import androidx.annotation.RequiresPermission;
-import androidx.core.content.ContextCompat;
-
-import com.google.android.gms.maps.model.Marker;
-import androidx.fragment.app.FragmentActivity;
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
-
 import android.Manifest;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import android.os.FileUtils;
-import android.preference.PreferenceManager;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.nio.Buffer;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 
 
-public class MapsActivity extends AppCompatActivity
+public class MapsActivityFiltered extends AppCompatActivity
         implements
         GoogleMap.OnInfoWindowClickListener,
         OnMapReadyCallback,
@@ -66,6 +45,8 @@ public class MapsActivity extends AppCompatActivity
     private GoogleMap mMap;
 
     private boolean mPermissionDenied = false;
+
+    private SharedPreferences prefs;
 
 
     double[] longitude = {-2.358266, -2.358713, 2.33759, -2.358359,
@@ -117,14 +98,14 @@ public class MapsActivity extends AppCompatActivity
         setContentView(R.layout.activity_maps);
 
         Button filterButton = new Button(this);
-        filterButton.setText("Filter");
+        filterButton.setText("Unfilter");
         addContentView(filterButton, new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT));
 
         filterButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), MapsActivityFiltered.class);
+                Intent i = new Intent(getApplicationContext(), MapsActivity.class);
                 startActivity(i);
             }
         });
@@ -184,13 +165,24 @@ public class MapsActivity extends AppCompatActivity
         BufferedReader reader = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
 
         String line = "";
+
+
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String style = prefs.getString("style", "");
+        style = "Realism";
+        if (style.equals("")) {
+            Toast.makeText(this, "No Styles yet!", Toast.LENGTH_SHORT).show();
+        }
+        System.out.print("Style");
+        System.out.print(style);
+
         try {
             while ((line = reader.readLine()) != null) {
                 String[] tokens = line.split(",");
 
                 try {
 
-                    if (!tokens[0].equals("name")) {
+                    if (!tokens[0].equals("name") && tokens[4].equals(style)) {
                         LatLng coord = new LatLng(Float.parseFloat(tokens[9]), Float.parseFloat(tokens[10]));
                         mMap.addMarker(new MarkerOptions().position(coord).title(tokens[0]).snippet(tokens[4]).icon(BitmapDescriptorFactory.fromBitmap(icon)));
                     }
@@ -244,7 +236,7 @@ public class MapsActivity extends AppCompatActivity
     }
 
     public void toMap(MenuItem item) {
-        Intent mapIntent = new Intent(this, MapsActivity.class);
+        Intent mapIntent = new Intent(this, MapsActivityFiltered.class);
         item.setChecked(true);
         startActivity(mapIntent);
     }
