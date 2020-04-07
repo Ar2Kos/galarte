@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Galarte</title>
+    <meta name="description" content="Roughly 155 characters">
+	<link rel="icon" href="assets/gallery_icon.png">
+    <link rel="stylesheet" type="text/css" href="s1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  
+	</head>
+	
+	<body>
+	<header>
+	<div class ="navContainer">
+		<img src = "assets/gallery_icon.png" alt = "logo" class = "logo">
+		<nav>
+			<ul>
+			<li><a style = "color: black; padding-right: 280px; font-size: 24px;"> Galarte </a></li>
+			<li><a href = "pwebhp.php">Sign up</a></li>
+			<li><a href = "tester.php">Sign in</a></li>
+			<li><a>Events</a></li>
+			</ul>
+		</nav>
+	
+	</div>
+	</header>
+	<div style="width: 100%; overflow: hidden;">
+		<div class = "descT"> Galarte </div>
+		
+		
+		<div class = "slideContainer">
+		<div class = "slide">
+			<img src="assets/RomanBaths.jpg" alt ="Roman Baths" width = 800 height = 500>
+			<div class="caption"> Roman Baths </div>
+		</div>
+		
+		<div class = "slide">
+			<img src="assets/PriorParkGarden.jpg" alt = "Prior Park Gardens" width = 800 height = 500>
+			<div class="caption"> Prior Park Gardens </div>
+		</div>
+		
+		<div class = "slide">
+			<img src="assets/BathAbbey.jpg" alt = "Bath Abbey" width = 800 height = 500>
+			<div class="caption"> Bath Abbey </div>
+		</div>	
+		</div>
+		<script>
+			var slideIndex = 0;
+			showSlides();
+			function showSlides(){
+				var i;
+				var slides = document.getElementsByClassName("slide");
+				for( i = 0; i < slides.length; i++){
+					slides[i].style.display = "none";}
+				slideIndex++;
+				if(slideIndex > slides.length){slideIndex = 1}
+					slides[slideIndex-1].style.display = "block";
+					setTimeout(showSlides,2000);
+			}
+		</script>	
+		<div class = "descB"> Here at galarte we hope to connect the younger 
+		generation to art through technology. Our goal is to help advertise exhibitions to the younger generation, and allow users to explore your
+		stock with a phone app. We hope to extend and revive art culture by including
+		the next generation </div>
+	</div>
+	
+	
+	
+	
+	</body>
+	
+	</html>
