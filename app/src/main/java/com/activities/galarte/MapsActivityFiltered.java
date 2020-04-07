@@ -169,20 +169,28 @@ public class MapsActivityFiltered extends AppCompatActivity
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String style = prefs.getString("style", "");
-        style = "Realism";
-        if (style.equals("")) {
-            Toast.makeText(this, "No Styles yet!", Toast.LENGTH_SHORT).show();
+        String style_select = prefs.getString("style_select", "");
+        System.out.println(style_select);
+        if (style_select.equals("Undecided")) {
+            style_select = "";
         }
-        System.out.print("Style");
-        System.out.print(style);
-
+        System.out.println(style);
+        if (style.equals("") && style_select.equals("")) {
+            Toast.makeText(this, "No Styles yet!", Toast.LENGTH_SHORT).show();
+        } else if (style.equals("")) {
+            Toast.makeText(this, "Filtering for your selected style " + style_select, Toast.LENGTH_SHORT).show();
+        } else if(style_select.equals("")) {
+            Toast.makeText(this, "Filtering for your Questionnaire style " + style, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Filtering for your selected style, " + style_select + ", and your Questionnaire style, " + style, Toast.LENGTH_LONG).show();
+        }
         try {
             while ((line = reader.readLine()) != null) {
                 String[] tokens = line.split(",");
 
                 try {
 
-                    if (!tokens[0].equals("name") && tokens[4].equals(style)) {
+                    if (!tokens[0].equalsIgnoreCase("name") && (tokens[4].equalsIgnoreCase(style) || tokens[4].equalsIgnoreCase(style_select))) {
                         LatLng coord = new LatLng(Float.parseFloat(tokens[9]), Float.parseFloat(tokens[10]));
                         mMap.addMarker(new MarkerOptions().position(coord).title(tokens[0]).snippet(tokens[4]).icon(BitmapDescriptorFactory.fromBitmap(icon)));
                     }
@@ -215,7 +223,6 @@ public class MapsActivityFiltered extends AppCompatActivity
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        System.out.print("boooooooooooooOOOOOOOOO");
         Intent galleryPageIntent = new Intent(this, GalleryPage.class);
         Bundle bundle = new Bundle();
         bundle.putString("galleryName", marker.getTitle());

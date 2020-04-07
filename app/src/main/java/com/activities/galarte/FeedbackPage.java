@@ -48,6 +48,9 @@ public class FeedbackPage extends AppCompatActivity {
 
         int[] answers = getIntent().getIntArrayExtra("Answers");
         calculateStyle(answers);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("style", style);
+        editor.commit();
     }
 
     protected void addListenerOnButtons() {

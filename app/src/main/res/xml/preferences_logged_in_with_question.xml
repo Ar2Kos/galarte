@@ -71,17 +71,29 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="Questioner Results">
+        android:title="Style">
+
+        <ListPreference
+            android:key="style_select"
+            android:title="Style Preference"
+            android:summary="Select the style for gallery recommendations, this will filter along side your style from the Questionnaire"
+            android:entries="@array/style_entries"
+            android:entryValues="@array/style_values"
+            android:defaultValue="Undecided"/>
 
 
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="Questionnaire Results">
 
         <Preference
             android:title="Style Preference"
             android:key="style"
             android:defaultValue="100000000000">
-<!--            android:widgetLayout="@layout/logout_button_layout">-->
-        </Preference>
 
+        </Preference>
 
     </PreferenceCategory>
 
